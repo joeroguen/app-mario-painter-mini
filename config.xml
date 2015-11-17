@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<widget
+
+    xmlns           = "http://www.w3.org/ns/widgets"
+    xmlns:gap       = "http://phonegap.com/ns/1.0"
+    xmlns:android   = "http://schemas.android.com/apk/res/android"
+    id              = "com.joeroguen.mario-painter-mini"
+    versionCode     = "1"
+    version         = "0.0.1">
+
+    <name>Mario Painter Mini</name>
+    <description>
+        simple app that allows you to paint a Super Mario 1 level
+    </description>
+    <author email="joeroguen@gmail.com" href="https://github.com/joeroguen">
+        joeroguen
+    </author>
+
+    <preference name="permissions" value="none" />
+    <preference name="orientation" value="landscape" />
+    <preference name="fullscreen" value="true" />
+    <preference name="LoadingDialog" value="Title LoadingDialog, Message LoadingDialog" />
+    <preference name="ShowTitle" value="false" />
+    <preference name="SplashScreen" value="splash" />
+
+    <content src="index.html" />
+    <access origin="*" />
+
+    <icon src="icon.png" />
+
+    <gap:platform name="android" />
+    <gap:splash src="splash.png" />
+    <gap:plugin name="org.apache.cordova.media" source="pgb" version="0.2.13" />
+    <gap:plugin name="org.apache.cordova.device" version="0.2.12" />
+</widget>

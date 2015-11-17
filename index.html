@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset='utf-8' />
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
+
+<title>Mario Painter Mini</title>
+
+<style type='text/css'>
+
+html, body {
+    height: 100%;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    width: 100%;
+}
+
+#left {
+    display: block;
+    float: left;
+    height: 100%;
+    margin: 0 0 0 0;
+    overflow-x: scroll;
+    padding: 0 0 0 0;
+    width: 80%;
+    }
+    #canvas {
+        background: #5c94fc none repeat top left;
+        height: 100%;
+        margin: 0 0 0 0;
+        padding: 0 0 0 0;
+        width: 1000px;
+        }
+        i {
+            background: transparent url('images/sprite-16.png');
+            background-repeat: no-repeat;
+            display: block;
+            height: 16px;
+            float: left;
+            margin: 0 0 0 0;
+            padding: 0 0 0 0;
+            width: 16px;
+        }
+
+#right {
+    display: block;
+    float: left;
+    height: 100%;
+    margin: 0 0 0 0;
+    overflow-y: scroll;
+    padding: 0 0 0 0;
+    width: 20%;
+    }
+    #objects {
+        background: #facd00 none;
+        height: 1000px;
+        margin: 0 0 0 0;
+        padding: 10% 0 10% 0;
+        width: 100%;
+        }
+        span {
+            background: transparent url('images/sprite-16.png');
+            background-repeat: no-repeat;
+            display: block;
+            margin: 0 auto 10% auto;
+            }
+        #sound {
+            background: transparent url('images/sound.png');
+            background-position: 0px 0px;
+            border: 0;
+            display: block;
+            height: 16px;
+            margin: 0 auto 10% auto;
+            outline: 0;
+            width: 16px;
+        }
+            /*mario*/
+            .objM { background-position: -18px -528px; height: 16px; width: 16px; }
+            .objL { background-position: -187px -524px; height: 16px; width: 16px; }
+            /*sky*/
+            .obj0 { background-position: -269px -352px; height: 16px; width: 16px; }
+            /*blocks*/
+            .obj1 { background-position: -368px -68px; height: 16px; width: 16px; }
+            .obj2 { background-position: -368px -145px; height: 16px; width: 16px; }
+            .obj3 { background-position: -367px -181px; height: 16px; width: 16px; }
+            /*hills*/
+            .obj4 { background-position: -26px -200px; height: 16px; width: 16px; }
+            .obj5 { background-position: -51px -179px; height: 16px; width: 16px; }
+            .obj6 { background-position: -51px -200px; height: 16px; width: 16px; }
+            .obj7 { background-position: -75px -200px; height: 16px; width: 16px; }
+            /*clouds*/
+            .obj8 { background-position: -192px -228px; height: 16px; width: 16px; }
+            .obj9 { background-position: -188px -196px; height: 16px; width: 16px; }
+            .obj10 { background-position: -221px -200px; height: 16px; width: 16px; }
+            .obj11 { background-position: -221px -232px; height: 16px; width: 16px; }
+            /*pipes*/
+            .obj12 { background-position: -597px -65px; height: 16px; width: 16px; }
+            .obj13 { background-position: -597px -83px; height: 16px; width: 16px; }
+            .obj14 { background-position: -628px -65px; height: 16px; width: 16px; }
+            .obj15 { background-position: -625px -83px; height: 16px; width: 16px; }
+            /*enemies*/
+            .obj16 { background-position: -203px -915px; height: 16px; width: 16px; }
+            .obj17 { background-position: -446px -784px; height: 16px; width: 16px; }
+            .obj18 { background-position: -181px -964px; height: 16px; width: 16px; }
+            .obj19 { background-position: -12px -1039px; height: 16px; width: 16px; }
+            /*flag*/
+            .obj20 { background-position: -258px -76px; height: 16px; width: 16px; }
+            .obj21 { background-position: -292px -109px; height: 16px; width: 16px; }
+            .obj22 { background-position: -309px -219px; height: 16px; width: 16px; }
+            /*items*/
+            .obj23 { background-position: -418px -216px; height: 16px; width: 16px; }
+            .obj24 { background-position: -66px -64px; height: 16px; width: 16px; }
+            .obj25 { background-position: -47px -85px; height: 16px; width: 16px; }
+            .obj26 { background-position: -47px -124px; height: 16px; width: 16px; }
+</style>
+</head>
+
+<body>
+<div id='left'>
+    <div id='canvas'>
+        <i></i>
+    </div>
+</div>
+
+<div id='right'>
+    <div id='objects'>
+        <a id='sound'></a>
+        <span class='objM'></span>
+        <span class='objL'></span>
+        <span class='obj0'></span>
+        <span class='obj1'></span>
+        <span class='obj2'></span>
+        <span class='obj3'></span>
+        <span class='obj4'></span>
+        <span class='obj5'></span>
+        <span class='obj6'></span>
+        <span class='obj7'></span>
+        <span class='obj8'></span>
+        <span class='obj9'></span>
+        <span class='obj10'></span>
+        <span class='obj11'></span>
+        <span class='obj12'></span>
+        <span class='obj13'></span>
+        <span class='obj14'></span>
+        <span class='obj15'></span>
+        <span class='obj16'></span>
+        <span class='obj17'></span>
+        <span class='obj18'></span>
+        <span class='obj19'></span>
+        <span class='obj20'></span>
+        <span class='obj21'></span>
+        <span class='obj22'></span>
+        <span class='obj23'></span>
+        <span class='obj24'></span>
+        <span class='obj25'></span>
+        <span class='obj26'></span>
+    </div>
+</div>
+
+<script src="phonegap.js"></script>
+<script src='scripts/jquery-1-11-3-min.js'></script>
+<script type='text/javascript'>
+    //using raymond camden's code for cordova media api example
+    //raymondcamden.com/2014/06/23/Cordova-Media-API-Example    
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    function onDeviceReady() {
+        var playButton = document.getElementById("playAudio");
+        playButton.addEventListener("touchstart", playAudio, false);
+        
+        //game object
+        var app = {
+            canvasHeight: 0,
+            canvasSize: 0,
+            createGrid: function() {
+                app.canvasHeight = jQuery('#canvas').height();
+                app.canvasSize = (Math.floor(app.canvasHeight/16)) * 62;
+                for ( a=1; a<app.canvasSize; a++ ) {
+                    jQuery('#canvas').append('<i></i>');
+                }
+            },
+            current: '',
+            showActive: function(item) {
+                app.current = jQuery(item).attr('class'); 
+                //alert(app.current);
+            },
+            placeItem: function() {
+                jQuery(this).css('background-image', app.current);
+            }
+        }; //end app object
+
+        //gameplay
+        app.createGrid();
+        jQuery('span').click(function() {
+            jQuery('span').css('outline', 'none');
+            jQuery(this).css('outline', '5px solid #5c94fc');
+            app.showActive(this);
+        });
+
+        jQuery('i').click(function() {
+            //alert(jQuery(this).index());
+            jQuery(this).removeClass();
+            jQuery(this).addClass(app.current);
+        });
+    }; //end on device ready
+
+    function playAudio() {
+        var audioUrl = getMediaURL("audio/music-16.wav");
+        var media = new Media(audioUrl, null, mediaError);
+        media.play();
+    };
+
+    function getMediaURL(s) {
+        if (device.platform.toLowerCase() === "android") {
+            return "/android_asset/www/" + s;
+        } else {
+            return s;
+        };
+    };
+
+    function mediaError(e) {
+        alert("Media Error");
+        alert(JSON.stringify(e));
+    };
+
+</script>
+</body>
+</html>
