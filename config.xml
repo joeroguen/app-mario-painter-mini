@@ -29,9 +29,8 @@
 
     <icon src="icon.png" />
 
-    <splash src="splash.png" />
+    <splash src="splash.png" platform="android" />
     
-    <gap:platform name="android" />
     <gap:plugin name="org.apache.cordova.media" source="pgb" version="0.2.13" />
     <gap:plugin name="org.apache.cordova.device" version="0.2.12" />
 </widget>
