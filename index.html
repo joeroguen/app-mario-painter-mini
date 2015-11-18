@@ -163,50 +163,13 @@ html, body {
 <script type='text/javascript'>
     //using raymond camden's code for cordova media api example
     //raymondcamden.com/2014/06/23/Cordova-Media-API-Example    
-    document.addEventListener("deviceready", onDeviceReady, false);
-
     function onDeviceReady() {
-        var playButton = document.getElementById("playAudio");
+        var playButton = document.getElementById("sound");
         playButton.addEventListener("touchstart", playAudio, false);
-        
-        //game object
-        var app = {
-            canvasHeight: 0,
-            canvasSize: 0,
-            createGrid: function() {
-                app.canvasHeight = jQuery('#canvas').height();
-                app.canvasSize = (Math.floor(app.canvasHeight/16)) * 62;
-                for ( a=1; a<app.canvasSize; a++ ) {
-                    jQuery('#canvas').append('<i></i>');
-                }
-            },
-            current: '',
-            showActive: function(item) {
-                app.current = jQuery(item).attr('class'); 
-                //alert(app.current);
-            },
-            placeItem: function() {
-                jQuery(this).css('background-image', app.current);
-            }
-        }; //end app object
-
-        //gameplay
-        app.createGrid();
-        jQuery('span').click(function() {
-            jQuery('span').css('outline', 'none');
-            jQuery(this).css('outline', '5px solid #5c94fc');
-            app.showActive(this);
-        });
-
-        jQuery('i').click(function() {
-            //alert(jQuery(this).index());
-            jQuery(this).removeClass();
-            jQuery(this).addClass(app.current);
-        });
     }; //end on device ready
 
     function playAudio() {
-        var audioUrl = getMediaURL("audio/music-16.wav");
+        var audioUrl = getMediaURL("audio/music.wav");
         var media = new Media(audioUrl, null, mediaError);
         media.play();
     };
@@ -223,7 +186,43 @@ html, body {
         alert("Media Error");
         alert(JSON.stringify(e));
     };
+    
+    //game object
+    var app = {
+        canvasHeight: 0,
+        canvasSize: 0,
+        createGrid: function() {
+            app.canvasHeight = jQuery('#canvas').height();
+            app.canvasSize = (Math.floor(app.canvasHeight/16)) * 62;
+            for ( a=1; a<app.canvasSize; a++ ) {
+                jQuery('#canvas').append('<i></i>');
+            }
+        },
+        current: '',
+        showActive: function(item) {
+            app.current = jQuery(item).attr('class'); 
+            //alert(app.current);
+        },
+        placeItem: function() {
+            jQuery(this).css('background-image', app.current);
+        }
+    }; //end app object
 
+    //gameplay
+    app.createGrid();
+    jQuery('span').click(function() {
+        jQuery('span').css('outline', 'none');
+        jQuery(this).css('outline', '5px solid #5c94fc');
+        app.showActive(this);
+    });
+
+    jQuery('i').click(function() {
+        //alert(jQuery(this).index());
+        jQuery(this).removeClass();
+        jQuery(this).addClass(app.current);
+    });
+
+    document.addEventListener("deviceready", onDeviceReady, false);
 </script>
 </body>
 </html>
