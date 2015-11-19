@@ -171,8 +171,10 @@ html, body {
     function playAudio() {
         var audioUrl = getMediaURL("audio/music.wav");
         var media = new Media(audioUrl, null, mediaError);
-        media.stop();
         media.play();
+        setTimeout(function() {
+            media.stop();
+        }, 46000);
     };
 
     function getMediaURL(s) {
